@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="?selectableItemBackground"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_standard">
+
+    <TextView
+        android:id="@+id/phoneTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Telefon" />
+
+    <ImageView
+        android:id="@+id/iconIV"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/valueTV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/valueTV"
+        app:tint="@color/text_gray"
+        tools:src="@drawable/ic_phone" />
+
+    <TextView
+        android:id="@+id/valueTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:textColor="@color/text_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iconIV"
+        app:layout_constraintTop_toBottomOf="@id/phoneTitleTV"
+        tools:text="+48 501 666 320" />
+</androidx.constraintlayout.widget.ConstraintLayout>

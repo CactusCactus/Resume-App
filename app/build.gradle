@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.kuba.resumeapp"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        dataBinding true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+ext {
+    //Core
+    ktxCoreVer = "1.3.1"
+    appCompatVer = "1.2.0"
+    materialVer = "1.2.0"
+    navigationVer = "2.3.0"
+    lifecycleVer = "2.2.0"
+    constraintVer = "1.1.3"
+
+    //Test
+    junitVer = "4.12"
+    junitExtVer = "1.1.1"
+    espressoVer = "3.2.0"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    //Core libs
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$ktxCoreVer"
+    implementation "androidx.appcompat:appcompat:$appCompatVer"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment:$navigationVer"
+    implementation "androidx.navigation:navigation-ui:$navigationVer"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVer"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVer"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVer"
+
+    //Views
+    implementation "com.google.android.material:material:$materialVer"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintVer"
+
+    //Test
+    testImplementation "junit:junit:$junitVer"
+    androidTestImplementation "androidx.test.ext:junit:$junitExtVer"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVer"
+
+}

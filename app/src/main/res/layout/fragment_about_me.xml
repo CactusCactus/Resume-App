@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.kuba.resumeapp.ui.home.AboutMeFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.kuba.resumeapp.ui.home.AboutMeViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_layout_height"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleTextAppearance="@style/CollapsingToolbarTetStyle"
+                app:contentScrim="?attr/colorPrimaryDark"
+                app:expandedTitleTextAppearance="@style/CollapsingToolbarTetStyle"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/toolbar">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/me_mock"
+                    app:layout_collapseMode="parallax" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_alignBottom="@+id/image"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/scrim_bottom" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    app:layout_collapseMode="pin"
+                    app:title="@{viewModel.personalInfoLD.nameLastName}"
+                    app:titleTextColor="@android:color/white" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard">
+
+                <TextView
+                    android:id="@+id/descriptionTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:layout_marginTop="@dimen/margin_extended"
+                    android:layout_marginEnd="@dimen/margin_standard"
+                    android:text="@{viewModel.personalInfoLD.description}"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/lorem_ipsum" />
+
+                <TextView
+                    android:id="@+id/phoneTitleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:text="@string/phone"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTV" />
+
+                <LinearLayout
+                    android:id="@+id/phoneLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{(v) -> fragment.onPhoneClick()}"
+                    android:padding="@dimen/margin_standard"
+                    app:layout_constraintTop_toBottomOf="@id/phoneTitleTV">
+
+                    <ImageView
+                        android:id="@+id/phoneIconIV"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_phone"
+                        app:tint="@color/text_gray" />
+
+                    <TextView
+                        android:id="@+id/phoneValueTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_standard"
+                        android:layout_weight="1"
+                        android:text="@{viewModel.personalInfoLD.phoneNumber}"
+                        android:textColor="@color/text_gray"
+                        tools:text="+48 501 666 320" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/emailTitleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:text="@string/email"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/phoneLayout" />
+
+                <LinearLayout
+                    android:id="@+id/emailLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{(v) -> fragment.onMailClick()}"
+                    android:padding="@dimen/margin_standard"
+                    app:layout_constraintTop_toBottomOf="@id/emailTitleTV">
+
+                    <ImageView
+                        android:id="@+id/emailIconIV"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_mail_outline"
+                        app:tint="@color/text_gray" />
+
+                    <TextView
+                        android:id="@+id/emailValueTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_standard"
+                        android:layout_weight="1"
+                        android:text="@{viewModel.personalInfoLD.email}"
+                        android:textColor="@color/text_gray"
+                        tools:text="email@example.com" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/linkedInTitleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_standard"
+                    android:text="@string/linked_in"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/emailLayout" />
+
+                <LinearLayout
+                    android:id="@+id/linkedInLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:onClick="@{(v) -> fragment.onLinkedInClick()}"
+                    android:padding="@dimen/margin_standard"
+                    app:layout_constraintTop_toBottomOf="@id/linkedInTitleTV">
+
+                    <ImageView
+                        android:id="@+id/linkedInIconIV"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_linkedin"
+                        app:layout_constraintBottom_toBottomOf="@id/phoneValueTV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/phoneValueTV"
+                        app:tint="@color/text_gray" />
+
+                    <TextView
+                        android:id="@+id/linkedInValueTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_standard"
+                        android:layout_weight="1"
+                        android:text="@{viewModel.personalInfoLD.linkedInUrl}"
+                        android:textColor="@color/text_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/phoneIconIV"
+                        app:layout_constraintTop_toBottomOf="@id/phoneTitleTV"
+                        tools:text="www.linkedin.com" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="@{(v) -> fragment.onMailClick()}"
+            android:src="@drawable/ic_mail_outline"
+            android:tint="@android:color/white"
+            app:borderWidth="0dp"
+            app:layout_anchor="@id/appBar"
+            app:layout_anchorGravity="bottom|end" />
+
+        <include
+            android:id="@+id/loadingView"
+            layout="@layout/view_loading_screen" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
