@@ -8,7 +8,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ApiInterface {
-    @GET("3f8a9346eb377373bcaec574692df0ed/raw/b2fb5172b1fbd59645d672bef1e9f38795880578/personal.json")
+    @GET("3f8a9346eb377373bcaec574692df0ed/raw/123e3cfef44c24b6ce1b66df258e837e5bf98c05/personal.json")
     fun getPersonalInfo(): Call<PersonalInfo>
 
     @GET("56b8d5e375a33e713b3df21251ed561b/raw/9684e4a71adb8b3528ff1e2c9aabdb9fc95458e4/education.json")
