@@ -5,4 +5,5 @@
     <dimen name="app_bar_layout_height">260dp</dimen>
     <dimen name="margin_standard">12dp</dimen>
     <dimen name="margin_extended">24dp</dimen>
+    <dimen name="card_view_corner">8dp</dimen>
 </resources>

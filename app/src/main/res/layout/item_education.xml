@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.kuba.resumeapp.data.model.EducationInfo" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        app:cardCornerRadius="@dimen/card_view_corner">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_standard">
+
+            <TextView
+                android:id="@+id/titleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{item.title}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Master degree in computer science" />
+
+            <TextView
+                android:id="@+id/universityTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{item.university}"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                tools:text="Cracow University of Technology" />
+
+            <TextView
+                android:id="@+id/timeFrameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{item.timeFrame}"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                tools:text="2017-2019" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.additionalInfo}"
+                android:textColor="@color/text_gray"
+                android:textSize="14sp"
+                tools:text="Title of Master Thesis: Usage of machine learning in face detection in Android application" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

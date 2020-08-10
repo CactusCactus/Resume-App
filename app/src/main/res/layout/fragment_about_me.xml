@@ -7,11 +7,11 @@
 
         <variable
             name="fragment"
-            type="com.kuba.resumeapp.ui.home.AboutMeFragment" />
+            type="com.kuba.resumeapp.ui.about_me.AboutMeFragment" />
 
         <variable
             name="viewModel"
-            type="com.kuba.resumeapp.ui.home.AboutMeViewModel" />
+            type="com.kuba.resumeapp.ui.about_me.AboutMeViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

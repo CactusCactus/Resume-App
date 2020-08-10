@@ -1,6 +1,5 @@
-package com.kuba.resumeapp.ui.home
+package com.kuba.resumeapp.ui.about_me
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kuba.resumeapp.data.PersonalInfo

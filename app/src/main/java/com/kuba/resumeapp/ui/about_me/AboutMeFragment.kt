@@ -1,8 +1,6 @@
-package com.kuba.resumeapp.ui.home
+package com.kuba.resumeapp.ui.about_me
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
