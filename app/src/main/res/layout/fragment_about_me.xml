@@ -83,19 +83,17 @@
                     android:layout_marginTop="@dimen/margin_extended"
                     android:layout_marginEnd="@dimen/margin_standard"
                     android:text="@{viewModel.personalInfoLD.description}"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
+                    style="@style/ContactNormalTextViewStyle"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/phoneTitleTV"
+                    style="@style/ContactTitleTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_standard"
                     android:layout_marginTop="@dimen/margin_standard"
                     android:text="@string/phone"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
                     app:layout_constraintTop_toBottomOf="@id/descriptionTV" />
 
                 <LinearLayout
@@ -110,30 +108,29 @@
 
                     <ImageView
                         android:id="@+id/phoneIconIV"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/contact_icon_size"
+                        android:layout_height="@dimen/contact_icon_size"
                         android:src="@drawable/ic_phone"
                         app:tint="@color/text_gray" />
 
                     <TextView
                         android:id="@+id/phoneValueTV"
+                        style="@style/ContactNormalTextViewStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_standard"
                         android:layout_weight="1"
                         android:text="@{viewModel.personalInfoLD.phoneNumber}"
-                        android:textColor="@color/text_gray"
                         tools:text="+48 501 666 320" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/emailTitleTV"
+                    style="@style/ContactTitleTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_standard"
                     android:text="@string/email"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
                     app:layout_constraintTop_toBottomOf="@id/phoneLayout" />
 
                 <LinearLayout
@@ -148,30 +145,29 @@
 
                     <ImageView
                         android:id="@+id/emailIconIV"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/contact_icon_size"
+                        android:layout_height="@dimen/contact_icon_size"
                         android:src="@drawable/ic_mail_outline"
                         app:tint="@color/text_gray" />
 
                     <TextView
                         android:id="@+id/emailValueTV"
+                        style="@style/ContactNormalTextViewStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_standard"
                         android:layout_weight="1"
                         android:text="@{viewModel.personalInfoLD.email}"
-                        android:textColor="@color/text_gray"
                         tools:text="email@example.com" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/linkedInTitleTV"
+                    style="@style/ContactTitleTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_standard"
                     android:text="@string/linked_in"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
                     app:layout_constraintTop_toBottomOf="@id/emailLayout" />
 
                 <LinearLayout
@@ -186,8 +182,8 @@
 
                     <ImageView
                         android:id="@+id/linkedInIconIV"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/contact_icon_size"
+                        android:layout_height="@dimen/contact_icon_size"
                         android:src="@drawable/ic_linkedin"
                         app:layout_constraintBottom_toBottomOf="@id/phoneValueTV"
                         app:layout_constraintStart_toStartOf="parent"
@@ -196,12 +192,12 @@
 
                     <TextView
                         android:id="@+id/linkedInValueTV"
+                        style="@style/ContactNormalTextViewStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_standard"
                         android:layout_weight="1"
                         android:text="@{viewModel.personalInfoLD.linkedInUrl}"
-                        android:textColor="@color/text_gray"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/phoneIconIV"
                         app:layout_constraintTop_toBottomOf="@id/phoneTitleTV"
