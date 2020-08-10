@@ -225,6 +225,12 @@
 
         <include
             android:id="@+id/loadingView"
-            layout="@layout/view_loading_screen" />
+            layout="@layout/view_loading_screen"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/errorView"
+            layout="@layout/view_fetch_error"
+            android:visibility="gone" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

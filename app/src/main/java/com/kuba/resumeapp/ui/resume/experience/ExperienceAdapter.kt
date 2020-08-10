@@ -8,6 +8,7 @@ import com.kuba.resumeapp.databinding.ItemExperienceBinding
 
 class ExperienceAdapter : RecyclerView.Adapter<ExperienceViewHolder>() {
     var modelList: List<ExperienceInfo>? = null
+    var listener: ExperienceItemListener? = null
 
     fun setData(items: Collection<ExperienceInfo>) {
         modelList = ArrayList(items)
@@ -27,7 +28,7 @@ class ExperienceAdapter : RecyclerView.Adapter<ExperienceViewHolder>() {
     override fun onBindViewHolder(holder: ExperienceViewHolder, position: Int) {
         val model = modelList?.get(position)
         model?.let {
-            holder.bind(it)
+            holder.bind(it, listener)
         }
     }
 
@@ -35,7 +36,16 @@ class ExperienceAdapter : RecyclerView.Adapter<ExperienceViewHolder>() {
 
 class ExperienceViewHolder(private val binding: ItemExperienceBinding) :
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(model: ExperienceInfo) {
+    fun bind(model: ExperienceInfo, listener: ExperienceItemListener?) {
         binding.item = model
+        binding.root.setOnClickListener {
+            listener?.let {
+                it.onClick(model)
+            }
+        }
     }
+}
+
+interface ExperienceItemListener {
+    fun onClick(model: ExperienceInfo)
 }

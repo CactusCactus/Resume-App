@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.kuba.resumeapp.data.model.RequestStatus
 import com.kuba.resumeapp.databinding.FragmentRecyclerSimpleBinding
 
 class LanguageFragment : Fragment() {
@@ -36,8 +37,17 @@ class LanguageFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.educationInfoListLD.observe(viewLifecycleOwner, Observer { data ->
-            adapter.setData(data)
+        viewModel.languageListLD.observe(viewLifecycleOwner, Observer { data ->
+            data?.let {
+                adapter.setData(data)
+            }
+        })
+        viewModel.requestStatus.observe(viewLifecycleOwner, Observer { status ->
+            binding.run {
+                loadingView.visibility =
+                    if (status == RequestStatus.CALLING) View.VISIBLE else View.GONE
+                errorView.visibility = if (status == RequestStatus.FAIL) View.VISIBLE else View.GONE
+            }
         })
     }
 

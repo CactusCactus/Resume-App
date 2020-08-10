@@ -1,17 +1,10 @@
 <resources>
     <string name="app_name">Resume App</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="about_me">About me</string>
     <string name="resume">Resume</string>
-    <string name="more">More</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur hendrerit maximus. Nunc sit amet nisl at orci venenatis elementum non nec ligula. Phasellus dignissim, ante eget lacinia varius, nisl libero semper sapien, in elementum arcu nulla et enim. Pellentesque nulla diam, imperdiet vel quam sed, suscipit elementum nisi. Donec dictum urna vitae metus tempor congue. Pellentesque eget sollicitudin sem. Proin hendrerit arcu nulla, in molestie elit auctor nec. Ut et orci nec dolor posuere suscipit id luctus elit. Quisque sit amet lectus a augue vehicula finibus sed in ante. Phasellus fermentum magna sit amet justo interdum bibendum. Nullam elementum erat in mi dictum, quis aliquam nibh ullamcorper. Fusce ut aliquam massa. Phasellus sit amet nisi nec turpis gravida vestibulum. Praesent eros eros, iaculis laoreet blandit vitae, molestie non ex. Quisque sit amet condimentum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus vitae aliquet nisi. Vivamus tellus erat, euismod eget iaculis id, tincidunt ac nulla. Nullam finibus tortor tellus, nec ultricies tellus pulvinar non. Aenean ut tincidunt ante. Donec vel condimentum arcu, et finibus ante. Praesent ac malesuada enim. Proin non tempus tortor. Vivamus luctus, ligula ac fermentum ornare, neque nisi finibus diam, finibus fringilla arcu tortor at arcu. Quisque rhoncus fermentum tristique. In velit augue, cursus vel orci sed, elementum mattis magna. Sed ullamcorper erat ante, quis scelerisque augue varius et. Quisque sapien ligula, molestie eu congue in, condimentum sed tellus. Proin eu venenatis elit, vel efficitur dolor. Quisque hendrerit neque sed tellus semper, at hendrerit sem elementum. In maximus, leo porta euismod gravida, nisi leo fermentum velit, eget imperdiet massa ligula vel urna. Vivamus eleifend cursus viverra. Etiam ligula nibh, malesuada a urna et, convallis hendrerit nibh. Mauris sit amet felis eu metus elementum aliquam nec non velit. Nullam sit amet vulputate felis. Aliquam ac nibh commodo, luctus metus ut, commodo quam. Cras mattis mattis convallis. Sed varius, orci quis gravida tristique, dui felis commodo nibh, vitae semper velit quam vel velit. Proin cursus egestas eros, sit amet interdum tortor ultrices nec. Aliquam accumsan nunc non consectetur ultricies. Fusce nec volutpat dolor, in viverra mi. Donec nec mauris commodo dolor varius placerat a non enim. Donec rutrum mauris et justo aliquam, ac tempor orci dignissim. Morbi nisi turpis, imperdiet eu lectus et, cursus rutrum magna. Phasellus finibus sagittis elit non luctus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris sit amet vehicula quam. Nunc sapien ante, elementum et malesuada vitae, pulvinar sit amet leo. Morbi ligula ante, auctor id fermentum id, venenatis quis magna. Etiam tincidunt, sapien a varius convallis, ex diam aliquam lacus, ac tempor nunc neque vitae ante. Aliquam sit amet consectetur diam. In vestibulum sodales eros in vestibulum. Fusce est nisi, scelerisque feugiat lectus vel, convallis varius quam. Sed euismod odio vel consectetur ultricies. Pellentesque in augue libero. Aliquam in ante quis erat posuere efficitur non vitae nibh. In eget efficitur ligula. Vivamus ac lorem convallis, mattis massa quis, feugiat nisi. Mauris interdum interdum convallis. Mauris fringilla, mauris a ullamcorper luctus, quam velit semper neque, at fringilla elit ipsum in est. Praesent finibus metus in mi mattis bibendum. Fusce ut erat nec ligula vehicula finibus non id orci. Phasellus vitae lectus porttitor, luctus ante sit amet, cursus felis. Sed consequat dolor et varius dignissim. Duis quis commodo diam. Aliquam vitae augue vel leo lobortis laoreet sed et sapien. Ut a nisl eu mi consectetur consectetur id in massa. Nulla vehicula blandit consequat. Integer auctor ex vitae tristique maximus.</string>
-    <string name="phone">Telefon</string>
+    <string name="phone">Phone</string>
     <string name="email">E-mail</string>
     <string name="linked_in">LinkedIn</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="education">Education</string>
     <string name="lang_native">Native</string>
     <string name="lang_beginner">Beginner</string>
@@ -20,4 +13,6 @@
     <string name="language">Language</string>
     <string name="unknown">Unknown</string>
     <string name="experience">Experience</string>
+    <string name="fetch_error_occurred">Fetch error occurred :(</string>
+    <string name="responsibilities">Responsibilities</string>
 </resources>

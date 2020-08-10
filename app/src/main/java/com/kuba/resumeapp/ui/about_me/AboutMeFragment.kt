@@ -61,7 +61,12 @@ class AboutMeFragment : BaseFragment() {
             }
         })
         viewModel.requestStatus.observe(viewLifecycleOwner, Observer { status ->
-            binding.loadingView.visibility = if (status == RequestStatus.CALLING) VISIBLE else GONE
+            binding.run {
+                loadingView.visibility =
+                    if (status == RequestStatus.CALLING) VISIBLE else GONE
+                errorView.visibility = if (status == RequestStatus.FAIL) VISIBLE else GONE
+            }
+
         })
     }
 

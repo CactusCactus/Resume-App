@@ -59,7 +59,7 @@
                     style="@style/ViewHolderNormalText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{item.timeFrame}"
+                    android:text="@{item.location}"
                     tools:text="Cracow, Poland" />
             </LinearLayout>
 

@@ -4,21 +4,42 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kuba.resumeapp.data.model.EducationInfo
 import com.kuba.resumeapp.data.model.RequestStatus
+import com.kuba.resumeapp.data.retrofit.ApiService
+import com.kuba.resumeapp.di.DaggerApiComponent
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import javax.inject.Inject
 
 class EducationViewModel : ViewModel() {
+    @Inject
+    lateinit var apiService: ApiService
     val educationInfoListLD = MutableLiveData<List<EducationInfo>>()
     val requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
 
-    fun fetchData() {
-        requestStatus.value = RequestStatus.CALLING
-        educationInfoListLD.value = mockData()
-        requestStatus.value = RequestStatus.SUCCESS
+    init {
+        DaggerApiComponent.create().inject(this)
     }
 
-    private fun mockData(): List<EducationInfo> {
-        return listOf(
-            EducationInfo("Magister", "Wyższa szkołą robienia hałasu", "1995-2020", null),
-            EducationInfo("Inżynier", "Wyższa szkołą robienia ciszy", "1995-1995", null)
-        )
+    fun fetchData() {
+        requestStatus.value = RequestStatus.CALLING
+        apiService.getEducationInfo().enqueue(object : Callback<List<EducationInfo>> {
+            override fun onResponse(
+                call: Call<List<EducationInfo>>,
+                response: Response<List<EducationInfo>>
+            ) {
+                if (response.isSuccessful) {
+                    educationInfoListLD.value = response.body()
+                    requestStatus.value = RequestStatus.SUCCESS
+                } else {
+                    requestStatus.value = RequestStatus.FAIL
+                }
+            }
+
+            override fun onFailure(call: Call<List<EducationInfo>>, t: Throwable) {
+                requestStatus.value = RequestStatus.FAIL
+                t.printStackTrace()
+            }
+        })
     }
 }
