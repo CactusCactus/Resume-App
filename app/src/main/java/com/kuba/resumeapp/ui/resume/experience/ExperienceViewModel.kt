@@ -1,5 +1,6 @@
 package com.kuba.resumeapp.ui.resume.experience
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kuba.resumeapp.data.model.ExperienceInfo
@@ -14,30 +15,33 @@ import javax.inject.Inject
 class ExperienceViewModel : ViewModel() {
     @Inject
     lateinit var apiService: ApiService
-    val experienceListLD = MutableLiveData<List<ExperienceInfo>>()
-    val requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
+    private val _experienceListLD = MutableLiveData<List<ExperienceInfo>>()
+    private val _requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
+
+    val experienceListLD: LiveData<List<ExperienceInfo>> get() = _experienceListLD
+    val requestStatus: LiveData<RequestStatus> get() = _requestStatus
 
     init {
         DaggerApiComponent.create().inject(this)
     }
 
     fun fetchData() {
-        requestStatus.value = RequestStatus.CALLING
+        _requestStatus.value = RequestStatus.CALLING
         apiService.getExperienceInfo().enqueue(object : Callback<List<ExperienceInfo>> {
             override fun onResponse(
                 call: Call<List<ExperienceInfo>>,
                 response: Response<List<ExperienceInfo>>
             ) {
                 if (response.isSuccessful) {
-                    experienceListLD.value = response.body()
-                    requestStatus.value = RequestStatus.SUCCESS
+                    _experienceListLD.value = response.body()
+                    _requestStatus.value = RequestStatus.SUCCESS
                 } else {
-                    requestStatus.value = RequestStatus.FAIL
+                    _requestStatus.value = RequestStatus.FAIL
                 }
             }
 
             override fun onFailure(call: Call<List<ExperienceInfo>>, t: Throwable) {
-                requestStatus.value = RequestStatus.FAIL
+                _requestStatus.value = RequestStatus.FAIL
                 t.printStackTrace()
             }
         })

@@ -1,5 +1,6 @@
 package com.kuba.resumeapp.ui.about_me
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kuba.resumeapp.data.model.PersonalInfo
@@ -15,27 +16,30 @@ class AboutMeViewModel : ViewModel() {
     @Inject
     lateinit var apiService: ApiService
 
-    val personalInfoLD = MutableLiveData<PersonalInfo>()
-    val requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
+    private val _personalInfoLD = MutableLiveData<PersonalInfo>()
+    private val _requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
+
+    val personalInfoLD: LiveData<PersonalInfo> get() = _personalInfoLD
+    val requestStatus: LiveData<RequestStatus> get() = _requestStatus
 
     init {
         DaggerApiComponent.create().inject(this)
     }
 
     fun fetch() {
-        requestStatus.value = RequestStatus.CALLING
+        _requestStatus.value = RequestStatus.CALLING
         apiService.getPersonalData().enqueue(object : Callback<PersonalInfo> {
             override fun onResponse(call: Call<PersonalInfo>, response: Response<PersonalInfo>) {
                 if (response.isSuccessful) {
-                    personalInfoLD.value = response.body()
-                    requestStatus.value = RequestStatus.SUCCESS
+                    _personalInfoLD.value = response.body()
+                    _requestStatus.value = RequestStatus.SUCCESS
                 } else {
-                    requestStatus.value = RequestStatus.FAIL
+                    _requestStatus.value = RequestStatus.FAIL
                 }
             }
 
             override fun onFailure(call: Call<PersonalInfo>, t: Throwable) {
-                requestStatus.value = RequestStatus.FAIL
+                _requestStatus.value = RequestStatus.FAIL
                 t.printStackTrace()
             }
         })

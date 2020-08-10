@@ -1,5 +1,6 @@
 package com.kuba.resumeapp.ui.resume.languages
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kuba.resumeapp.data.model.LanguageInfo
@@ -14,30 +15,32 @@ import javax.inject.Inject
 class LanguageViewModel : ViewModel() {
     @Inject
     lateinit var apiService: ApiService
-    val languageListLD = MutableLiveData<List<LanguageInfo>>()
-    val requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
+    private val _languageListLD = MutableLiveData<List<LanguageInfo>>()
+    private val _requestStatus = MutableLiveData<RequestStatus>(RequestStatus.NOT_STARTED)
 
+    val languageListLD: LiveData<List<LanguageInfo>> get() = _languageListLD
+    val requestStatus: LiveData<RequestStatus> get() = _requestStatus
     init {
         DaggerApiComponent.create().inject(this)
     }
 
     fun fetchData() {
-        requestStatus.value = RequestStatus.CALLING
+        _requestStatus.value = RequestStatus.CALLING
         apiService.getLanguagesInfo().enqueue(object : Callback<List<LanguageInfo>> {
             override fun onResponse(
                 call: Call<List<LanguageInfo>>,
                 response: Response<List<LanguageInfo>>
             ) {
                 if (response.isSuccessful) {
-                    languageListLD.value = response.body()
-                    requestStatus.value = RequestStatus.SUCCESS
+                    _languageListLD.value = response.body()
+                    _requestStatus.value = RequestStatus.SUCCESS
                 } else {
-                    requestStatus.value = RequestStatus.FAIL
+                    _requestStatus.value = RequestStatus.FAIL
                 }
             }
 
             override fun onFailure(call: Call<List<LanguageInfo>>, t: Throwable) {
-                requestStatus.value = RequestStatus.FAIL
+                _requestStatus.value = RequestStatus.FAIL
                 t.printStackTrace()
             }
         })

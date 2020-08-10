@@ -20,7 +20,7 @@ class ApiModule {
     }
 
     @Provides
-    fun provideCountriesService(): ApiService {
+    fun provideApiService(): ApiService {
         return ApiService()
     }
 
