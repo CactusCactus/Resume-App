@@ -1,4 +1,4 @@
-package com.kuba.resumeapp.data
+package com.kuba.resumeapp.data.model
 
 data class PersonalInfo(
     val nameLastName: String?,

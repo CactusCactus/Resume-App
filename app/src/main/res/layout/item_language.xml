@@ -5,7 +5,7 @@
 
         <variable
             name="item"
-            type="com.kuba.resumeapp.data.model.EducationInfo" />
+            type="com.kuba.resumeapp.data.model.LanguageInfo" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,33 +27,17 @@
                 style="@style/ViewHolderTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{item.title}"
+                android:text="@{item.languageName}"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Master degree in computer science" />
+                tools:text="English" />
 
             <TextView
                 android:id="@+id/universityTV"
                 style="@style/ViewHolderNormalText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{item.university}"
-                tools:text="Cracow University of Technology" />
-
-            <TextView
-                android:id="@+id/timeFrameTV"
-                style="@style/ViewHolderNormalText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{item.timeFrame}"
-                tools:text="2017-2019" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{item.additionalInfo}"
-                android:textColor="@color/text_gray"
-                android:textSize="14sp"
-                tools:text="Title of Master Thesis: Usage of machine learning in face detection in Android application" />
+                android:text="@{item.proficiency.toString(context)}"
+                tools:text="Advance" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

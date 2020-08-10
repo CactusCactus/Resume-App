@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.kuba.resumeapp.data.PersonalInfo
+import com.kuba.resumeapp.data.model.PersonalInfo
 import com.kuba.resumeapp.data.model.RequestStatus
 import com.kuba.resumeapp.databinding.FragmentAboutMeBinding
 import com.kuba.resumeapp.ui.BaseFragment

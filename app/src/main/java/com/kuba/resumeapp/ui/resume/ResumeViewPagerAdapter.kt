@@ -7,28 +7,36 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.kuba.resumeapp.R
 import com.kuba.resumeapp.ui.resume.education.EducationFragment
+import com.kuba.resumeapp.ui.resume.experience.ExperienceFragment
+import com.kuba.resumeapp.ui.resume.languages.LanguageFragment
 
 class ResumeViewPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {
     override fun getItemCount(): Int = PAGE_NUM
 
     override fun createFragment(position: Int): Fragment {
-        when (position) {
-            EDUCATION_POS -> return EducationFragment.newInstance()
+        return when (position) {
+            EDUCATION_POS -> EducationFragment.newInstance()
+            EXPERIENCE_POS -> ExperienceFragment.newInstance()
+            LANGUAGE_POS -> LanguageFragment.newInstance()
+            else -> Fragment()
         }
-        return Fragment()
     }
 
     fun getFragmentName(context: Context, position: Int): String {
-        when (position) {
+        return when (position) {
             EDUCATION_POS -> return context.getString(R.string.education)
+            EXPERIENCE_POS -> return context.getString(R.string.experience)
+            LANGUAGE_POS -> return context.getString(R.string.language)
+            else -> context.getString(R.string.unknown)
         }
-        return ""
     }
 
     companion object {
         const val PAGE_NUM = 3
         const val EDUCATION_POS = 0
+        const val EXPERIENCE_POS = 1
+        const val LANGUAGE_POS = 2
     }
 
 }

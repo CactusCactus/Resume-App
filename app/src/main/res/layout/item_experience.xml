@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.kuba.resumeapp.data.model.ExperienceInfo" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        app:cardCornerRadius="@dimen/card_view_corner">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_standard"
+                app:layout_constraintEnd_toStartOf="@id/chevronIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/positionTV"
+                    style="@style/ViewHolderTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.position}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Android Developer" />
+
+                <TextView
+                    android:id="@+id/companyTV"
+                    style="@style/ViewHolderNormalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.company}"
+                    tools:text="Comarch S.A." />
+
+                <TextView
+                    android:id="@+id/timeFrameTV"
+                    style="@style/ViewHolderNormalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.timeFrame}"
+                    tools:text="2017-2019" />
+
+                <TextView
+                    android:id="@+id/locationTV"
+                    style="@style/ViewHolderNormalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.timeFrame}"
+                    tools:text="Cracow, Poland" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/chevronIV"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_chevron_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/text_gray" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

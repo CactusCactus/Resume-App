@@ -1,4 +1,4 @@
-package com.kuba.resumeapp.ui.resume.education
+package com.kuba.resumeapp.ui.resume.experience
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,14 +9,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kuba.resumeapp.databinding.FragmentRecyclerSimpleBinding
 
-class EducationFragment : Fragment() {
-    private lateinit var viewModel: EducationViewModel
-    private lateinit var adapter: EducationAdapter
+class ExperienceFragment : Fragment() {
+    private lateinit var viewModel: ExperienceViewModel
+    private lateinit var adapter: ExperienceAdapter
     private lateinit var binding: FragmentRecyclerSimpleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EducationViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ExperienceViewModel::class.java)
         viewModel.fetchData()
     }
 
@@ -30,7 +30,7 @@ class EducationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = EducationAdapter()
+        adapter = ExperienceAdapter()
         binding.recyclerView.adapter = adapter
         observeViewModel()
     }
@@ -43,6 +43,6 @@ class EducationFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = EducationFragment()
+        fun newInstance() = ExperienceFragment()
     }
 }

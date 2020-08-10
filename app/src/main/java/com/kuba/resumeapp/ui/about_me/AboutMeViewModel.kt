@@ -2,7 +2,7 @@ package com.kuba.resumeapp.ui.about_me
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.kuba.resumeapp.data.PersonalInfo
+import com.kuba.resumeapp.data.model.PersonalInfo
 import com.kuba.resumeapp.data.model.RequestStatus
 
 class AboutMeViewModel : ViewModel() {
@@ -16,13 +16,14 @@ class AboutMeViewModel : ViewModel() {
         requestStatus.value = RequestStatus.SUCCESS
     }
 
-    private fun mockData(): PersonalInfo = PersonalInfo(
-        "Jakub Grzeda",
-        "https://i.imgur.com/rcyrwM5.jpg",
-        "+48 501 666 320",
-        "mail@mail.com",
-        "https://i.imgur.com/rcyrwM5.jpg",
-        "Jestem Kuba i luuuubie se podupczyc"
-    )
+    private fun mockData(): PersonalInfo =
+        PersonalInfo(
+            "Jakub Grzeda",
+            "https://i.imgur.com/rcyrwM5.jpg",
+            "+48 501 666 320",
+            "mail@mail.com",
+            "https://i.imgur.com/rcyrwM5.jpg",
+            "Jestem Kuba i luuuubie se podupczyc"
+        )
 
 }

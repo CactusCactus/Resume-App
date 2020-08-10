@@ -13,4 +13,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="education">Education</string>
+    <string name="lang_native">Native</string>
+    <string name="lang_beginner">Beginner</string>
+    <string name="lang_intermediate">Intermediate</string>
+    <string name="lang_advanced">Advanced</string>
+    <string name="language">Language</string>
+    <string name="unknown">Unknown</string>
+    <string name="experience">Experience</string>
 </resources>
