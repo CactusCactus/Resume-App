@@ -32,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 ext {
     //Core
@@ -51,6 +52,7 @@ ext {
     junitVer = "4.12"
     junitExtVer = "1.1.1"
     espressoVer = "3.2.0"
+    mockitoVer = "2.28.2"
 }
 
 dependencies {
@@ -96,5 +98,7 @@ dependencies {
     testImplementation "junit:junit:$junitVer"
     androidTestImplementation "androidx.test.ext:junit:$junitExtVer"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVer"
+    testImplementation "org.mockito:mockito-core:$mockitoVer"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
 
 }
